@@ -1,7 +1,7 @@
 module MyEnumerable
 
   def my_map
-    for i in (0..self.length-1)
+    for i in (0...self.length)
       self[i] = yield self[i]
     end
   end

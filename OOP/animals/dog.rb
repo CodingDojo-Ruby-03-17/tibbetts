@@ -18,7 +18,7 @@ class Dog < Mammal
   end
 
 end
-dog = Dog.new(1)
+dog = Dog.new
 # dog.display_health
 dog.walk.walk.walk.walk.pet
 dog.display_health

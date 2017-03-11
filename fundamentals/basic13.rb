@@ -29,13 +29,15 @@
 # puts Array.new(rand(10...20)) { rand(1...10)  } .map! { |i| i**2 }
 
 # Elimainate Negative Numbers
-# puts Array.new(10) { rand(-10...10) } .reject! { |i| i < 0 }
-
+puts Array.new(10) { rand(-10..10) } .map! { |i| i < 0 ? 0 : i }
+a = Array.new(10) { rand(-10..10) }
+a.each_with_index { |val, i| a[i] = 0 if val < 0 }
+puts a 
 # Max, Min, and Average
 
 # Shifting the Values in the Array
-a = [1, 5, 10, 7, -2]; a.shift
-puts a << 0
+# a = [1, 5, 10, 7, -2]; a.shift
+# puts a << 0
 
 # Number to String 
 # puts ['dojo', 'dojo', 12, -2].map! { |i| i.to_s } .join
