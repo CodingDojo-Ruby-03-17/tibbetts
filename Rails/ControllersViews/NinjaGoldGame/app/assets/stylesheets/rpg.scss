@@ -1,0 +1,25 @@
+// Place all the styles related to the Rpg controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+li { list-style-type: none;}
+.gain { color: green; }
+.loss { color: red; }
+ul, form, .gold {
+  border: solid 3px black;
+}
+ul {
+  padding: 10px;
+  overflow: auto;
+  height: 250px;
+}
+legend { margin: auto; }
+form, .gold { text-align: center; }
+form {
+  display: inline-block;
+  width: 150px;
+}
+.gold {
+  width: 150px;
+  display: inline-block;
+}
