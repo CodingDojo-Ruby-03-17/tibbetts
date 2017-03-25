@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield :title %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield :before_col %>
+    <div class="container">
+      <div class="row">
+        <div class="half">
+          <%= yield :left %>
+        </div> 
+        <div class="half">
+          <%= yield :right %>
+        </div> 
+      </div>
+    </div>
+    <%= yield :after_col %>
+  </body>
+</html>

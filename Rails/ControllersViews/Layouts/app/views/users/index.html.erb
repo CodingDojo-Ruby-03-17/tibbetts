@@ -1,0 +1,36 @@
+<% content_for :left do %>
+<h1>All Users</h1><br>
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Favorite Language</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% User.all.each do |user| %>
+    <tr>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+      <td><%= user.favorite_language %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<% end %>
+
+
+<% content_for :right do %>
+  <h1>New User</h1>
+  <%= form_for User.new, :url => { :action => "create" }, :html => { :class => "form-signin" } do |u| %>
+    <%= u.label :first_name %>
+    <%= u.text_field :first_name, class: "form-control" %>
+    <%= u.label :last_name %>
+    <%= u.text_field :last_name, class: "form-control" %>
+    <%= u.label :favorite_language %>
+    <%= u.text_field :favorite_language, class: "form-control" %>
+    <%= submit_tag "Create User", class: "btn btn-primary" %>
+  <% end %>
+
+<% end %>
