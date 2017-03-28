@@ -1,0 +1,15 @@
+<h1>Edit a Dojo</h1>
+
+<%= form_for @dojo, url: { :action => "update" } do |d| %>
+  <%= d.label :branch %>
+  <%= d.text_field :branch %><br>
+  <%= d.label :street %>
+  <%= d.text_field :street %><br>
+  <%= d.label :city %>
+  <%= d.text_field :city %><br>
+  <%= d.label :state %>
+  <%= d.text_field :state %><br>
+  <%= submit_tag "Update" %>
+
+
+<% end %>

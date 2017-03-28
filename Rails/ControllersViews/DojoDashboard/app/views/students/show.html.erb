@@ -1,0 +1,24 @@
+<h1><%= @dojo.branch %>'s <%= @student.name %></h1>
+<p>Email: <%= @student.email %></p>
+
+
+<h3>Cohort</h3>
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%  @dojo.students.each do |s| %>
+    <tr>
+      <td><%= s.first_name %></td>
+      <td><%= s.last_name %></td>
+      <td><%= s.email %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

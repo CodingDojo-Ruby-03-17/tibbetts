@@ -1,11 +1,28 @@
-<div class="row">
-  <div class="lefty">
-    <%= yeild :left %>
-  </div>
-  <div class="centery">
-    <%= yeild :center %>
-  </div>
-  <div class="righty">
-    <%= yeild :right %>
-  </div>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield :title %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield :before_col %>
+    <div class="container">
+      <div class="row">
+        <div class="third">
+          <%= yield :left %>
+        </div> 
+        <div class="third">
+          <%= yield :center %>
+        </div>
+        <div class="third">
+          <%= yield :right %>
+        </div> 
+      </div>
+    </div>
+    <%= yield :after_col %>
+  </body>
+</html>

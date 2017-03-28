@@ -11,6 +11,4 @@ class Project
 
 end
 
-pro = Project.new("Life", "is good")
-pro.elevator_pitch
 

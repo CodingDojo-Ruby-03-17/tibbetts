@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    puts params
+    User.create( protect_params )
     redirect_to '/'
   end
 

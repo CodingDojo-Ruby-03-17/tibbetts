@@ -1,1 +1,44 @@
-<h1>Posts index</h1>
+<% content_for :title do %>
+  <%= "Posts" %>
+<% end %>
+
+<% content_for :left do %>
+<h1>All Posts</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @posts.each do |p| %>
+    <tr>
+      <td><%= p.title %></td>
+      <td><%= p.content %></td>
+      <td><%= p.user.first_name + " " + p.user.last_name %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<% content_for :center do %>
+  <h1>New Post</h1>
+  <%= form_for Post.new, :url => { :action => "create" }, :html => { :class => "form-signin" } do |p| %>
+    <%= p.label :title %>
+    <%= p.text_field :title, class: "form-control" %>
+    <%= p.label :content %>
+    <%= p.text_area :content, class: "form-control" %>
+    <%= p.label :author %>
+    <%= select("post", "user_id", User.all.collect { |u| [u.first_name + " " + u.last_name, u.id] } ) %><br>
+    <%= submit_tag "Submit", class: "btn btn-primary" %>
+  <% end %>
+<% end %>
+
+
+<% content_for :right do %>
+<h1>Go To User Page</h1>
+<a href="/">All Users</a>
+<% end %>

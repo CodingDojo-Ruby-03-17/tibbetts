@@ -18,7 +18,6 @@ div {
   margin: 0 auto;
   vertical-align: top;
 }
-.half {
-  width: 49%;
-  display: inline-block;
-}
+.half, .third { display: inline-block; }
+.half { width: 49%; }
+.third { width: 32%; }

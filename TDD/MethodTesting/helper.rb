@@ -1,7 +1,6 @@
 module Helpers
 
   def with_captured_stdout
-    :available
     begin
       old_stdout = $stdout
       $stdout = StringIO.new('','w')

@@ -1,0 +1,16 @@
+<h1>Dojo#new</h1>
+<p>Find me in app/views/dojo/new.html.erb</p>
+
+<%= form_for @dojo, :url => { :action => "create" } do |d| %>
+  <%= d.label :branch %>
+  <%= d.text_field :branch %><br>
+  <%= d.label :street %>
+  <%= d.text_field :street %><br>
+  <%= d.label :city %>
+  <%= d.text_field :city %><br>
+  <%= d.label :state %>
+  <%= d.text_field :state %><br>
+  <%= submit_tag "Create" %>
+<% end %>
+
+<hr>

@@ -1,0 +1,14 @@
+<h1>Add a Student to <%= @dojo.branch %> </h1>
+
+<%= form_for @student, :url => { action: "create" } do |s| %>
+  <%= s.label :first_name %>
+  <%= s.text_field :first_name %><br>
+  <%= s.label :last_name %>
+  <%= s.text_field :last_name %><br>
+  <%= s.label :email %>
+  <%= s.text_field :email %><br>
+  <%= s.label :dojo %>
+  <%= select("student", "dojo_id", Dojo.all.collect { |d| [d.branch, d.id] }, :selected => @dojo.id) %><br>
+
+  <%= submit_tag "Add Student" %>
+<% end %>
