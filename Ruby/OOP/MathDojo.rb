@@ -1,11 +1,10 @@
 class MathDojo
+
+  attr_reader :result
+  
   def initialize()
     @result = 0
     return self
-  end
-
-  def result
-    @result
   end
 
   def add *operands
@@ -19,4 +18,4 @@ class MathDojo
   end
 end
 
-puts MathDojo.new().add(1,2,3,4).sub(-90).result
+#puts MathDojo.new().add(1,2,3,4).sub(-90).result

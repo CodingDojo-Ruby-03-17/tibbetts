@@ -5,6 +5,13 @@ module MyEnumerable
       self[i] = yield self[i]
     end
   end
+  
+  ## my_map alternative ###
+  #def my_map
+  #  for i in self
+  #    i = yield i
+  #  end
+  #end
 
   def my_each
     for i in self
