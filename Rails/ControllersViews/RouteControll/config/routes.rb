@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'hello' => "hello#index"
 
   get '' => "say#index"
-  get 'say/hello' => "say#hello"
+  get 'say/hello'
   get 'say/hello/:name' => "say#show"
 
   get 'times' => "time#index"

@@ -4,7 +4,6 @@ class SayController < ApplicationController
   end
 
   def hello
-    return 'hello.html.erb'
   end
 
   def show

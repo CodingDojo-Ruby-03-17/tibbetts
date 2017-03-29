@@ -7,6 +7,7 @@ class TimeController < ApplicationController
 
   def restart
     session.delete(:times)
-    redirect_to '/times'
+    return redirect_to action: 'index'
   end
+
 end
