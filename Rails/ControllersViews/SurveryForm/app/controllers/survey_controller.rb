@@ -10,6 +10,10 @@ class SurveyController < ApplicationController
     return render 'index.html.erb'
   end
 
+  def post
+
+  end
+
   def result
   end
 end

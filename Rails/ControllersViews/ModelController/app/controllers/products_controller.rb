@@ -4,12 +4,11 @@ class ProductsController < ApplicationController
   end
 
   def show
-    puts params.class.ancestors
     return render json: Product.find(params[:id])
   end
 
   def create 
-    Product.create(name: params[:name], description: params[:description], price: params[:price])
+    Product.create( protect_params )
     redirect_to '/products'
   end
 
@@ -21,11 +20,15 @@ class ProductsController < ApplicationController
   end
 
   def update
-    Product.find(params[:id]).update(name: params[:name], description: params[:description], price: params[:price])
+    Product.find(params[:id]).update( protect_params )
     return redirect_to '/products'
   end
 
   def total
   end
 
+  private
+    def protect_params
+      params.require(:product).permit(:name, :description, :price)
+    end
 end

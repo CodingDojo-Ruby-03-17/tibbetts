@@ -12,9 +12,11 @@ class StudentsController < ApplicationController
   def create
     @dojo = Dojo.find(params[:dojo_id])
     if @dojo.students.create( protect_params ).valid?
-      return redirect_to "/dojos/show/#{@dojo.id}/"
+      flash[:success] = "Student added to #{@dojo.branch}"
+      return redirect_to controller: 'dojo', action: 'show', id: @dojo.id
     end
-    return redirect_to "/dojos/#{@dojo.id}/students/new" 
+    flash[:error] = "All fields are required."
+    return redirect_to action: 'new', dojo_id: @dojo.id 
   end
 
   def show
@@ -29,12 +31,13 @@ class StudentsController < ApplicationController
 
   def update
     Student.find(params[:id]).update( protect_params ) 
-    return redirect_to "/dojos/#{params[:student][:dojo_id]}/students/#{params[:id]}"
+    return redirect_to action: "show", dojo_id: params[:student][:dojo_id], id: params[:id]
   end
 
   def destroy
-    Student.find(params[:id]).destroy
-    return redirect_to "/dojos/show/#{params[:dojo_id]}"
+    student = Student.find(params[:id])
+    student.destroy
+    return redirect_to controller: 'dojo', action: 'show', id: student.dojo_id
   end
 
   private 

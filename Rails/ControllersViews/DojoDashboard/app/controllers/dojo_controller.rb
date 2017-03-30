@@ -8,12 +8,15 @@ class DojoController < ApplicationController
   end
 
   def create
+    action = 'index'
     @dojo = Dojo.new(protect_params)
     if @dojo.save
-      redirect_to '/dojos'
+      flash[:success] = "A new dojo was successfully create"
     else
-      return redirect_to 'new'
+      @dojo.errors.messages.each { |k, v| flash[k] = "#{k} #{v[0]}" }
+      action = 'new'
     end
+    return redirect_to action: action
   end
 
   def show
@@ -27,15 +30,14 @@ class DojoController < ApplicationController
   def update
     @dojo = Dojo.find(params[:id])
     if @dojo.update(protect_params)
-      return redirect_to '/dojos'
+      return redirect_to action: 'index'
     end
-    puts @dojo.errors
-    return redirect_to "/dojos/edit/#{params[:id]}"
+    return redirect_to action: 'edit', id: params[:id]
   end
 
   def destroy
     Dojo.find(params[:id]).destroy
-    return redirect_to '/dojos'
+    return redirect_to action: 'index'
   end
 
   private

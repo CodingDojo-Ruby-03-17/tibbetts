@@ -1,63 +1,47 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="description" content="A simple for sumission ruby practice assignment">
-    <link rel="stylesheet" href="/css/master.css">
-    <%= stylesheet_link_tag    "application", :media => "all" %>
-  </head>
+<p>Your Gold: <span class="gold"><%= session[:gold] %></span> </p>
 
-  <body>
-    <p>Your Gold: <span class="gold"><%= session[:gold] %></span> </p>
+<ul class="flash-list">
+<% flash.each do |key, value| %>
+  <%= content_tag :li, value, class: "flash #{key}" %>
+<% end %>
+</ul>
 
+<div class="actions">
+  <form action="/rpg/index" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="activity" value="farm">
+    <legend>Farm</legend>
+    <p>(earns 10-20 gold)</p>
+    <input type="submit" name="submit" value="Find Gold!">
+  </form>
+  <form action="/rpg/index" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="activity" value="cave">
+    <legend>Cave</legend>
+    <p>(earns 5-10 gold)</p>
+    <input type="submit" name="submit" value="Find Gold!">
+  </form>
+  <form action="/rpg/index" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="activity" value="house">
+    <legend>House</legend>
+    <p>(earns 2-5 gold)</p>
+    <input type="submit" name="submit" value="Find Gold!">
+  </form>
+  <form action="/rpg/index" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="activity" value="casino">
+    <legend>Casino</legend>
+    <p>(earns/takes 0-50 gold)</p>
+    <input type="submit" name="submit" value="Find Gold!">
+  </form>
+</div>
 
-    <% flash.each do |key, value| %>
-      <p class="<%= key %>"><%= value %></p>
+<div class="history">
+  <h3>Activites</h3>
+  <ul>
+    <% session[:history].each do |type, info| %>
+      <li class="<%= type %>"> <%= info %></li>
     <% end %>
-
-    <div class="actions">
-
-      <form action="/rpg/index" method="post">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        <input type="hidden" name="activity" value="farm">
-        <legend>Farm</legend>
-        <p>(earns 10-20 gold)</p>
-        <input type="submit" name="submit" value="Find Gold!">
-      </form>
-
-      <form action="/rpg/index" method="post">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        <input type="hidden" name="activity" value="cave">
-        <legend>Cave</legend>
-        <p>(earns 5-10 gold)</p>
-        <input type="submit" name="submit" value="Find Gold!">
-      </form>
-
-      <form action="/rpg/index" method="post">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        <input type="hidden" name="activity" value="house">
-        <legend>House</legend>
-        <p>(earns 2-5 gold)</p>
-        <input type="submit" name="submit" value="Find Gold!">
-      </form>
-
-      <form action="/rpg/index" method="post">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        <input type="hidden" name="activity" value="casino">
-        <legend>Casino</legend>
-        <p>(earns/takes 0-50 gold)</p>
-        <input type="submit" name="submit" value="Find Gold!">
-      </form>
-
-    </div>
-
-    <div class="history">
-      <h3>Activites</h3>
-      <ul>
-        <% session[:history].each do |type, info| %>
-          <li class="<%= type %>"> <%= info %></li>
-        <% end %>
-      </ul>
-    </div>
-  </body>
-</html>
+  </ul>
+</div>

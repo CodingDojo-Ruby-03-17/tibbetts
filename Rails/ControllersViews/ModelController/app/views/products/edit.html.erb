@@ -3,13 +3,13 @@
 <form action="/products/<%= @product.id %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <label>Name:</label>
-  <input type="text" name="name" value="<%= @product.name %>"><br>
+  <input type="text" name="product[name]" value="<%= @product.name %>"><br>
 
   <label>Price:</label>
-  <input type="number" name="price" value="<%= @product.price %>"><br>
+  <input type="number" name="product[price]" value="<%= @product.price %>"><br>
 
   <label>Description:</label>
-  <textarea rows="4" cols="40" name="description"><%= @product.description %></textarea><br>
+  <textarea rows="4" cols="40" name="product[description]"><%= @product.description %></textarea><br>
 
   <input type="submit" name="submit" value="submit">
 </form>
