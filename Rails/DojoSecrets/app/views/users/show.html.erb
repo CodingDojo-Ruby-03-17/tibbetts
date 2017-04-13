@@ -1,0 +1,4 @@
+<h1>Users#show</h1>
+<%= content_tag :h1, @user.email %>
+<%= content_tag :h1, @user.name %>
+<%= link_to "/users/edit/#{@user.id}" "Edit Profile" %>

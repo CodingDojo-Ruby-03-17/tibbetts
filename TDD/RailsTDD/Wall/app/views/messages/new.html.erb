@@ -1,0 +1,6 @@
+<%= form_for @message, :url => { action: "create" } do |m| %>
+  <%= m.hidden_field :user_id, :value => 1 %>
+  <%= m.label :message %>
+  <%= m.text_field :message %>
+  <%= submit_tag "Create Message" %>
+<% end %>

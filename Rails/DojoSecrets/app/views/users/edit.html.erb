@@ -1,0 +1,10 @@
+<%= form_for @user, :url => { action: "update" } do |u| %>
+  <%= u.label :name %>
+  <%= u.text_field :name, :value => @user.name %>
+  <%= u.label :email %>
+  <%= u.text_field :email, :value => @user.email %>
+  <%= submit_tag "Update" %>
+<% end %>
+<%= form_for @user, method: :delete, :url => { action: "destroy" } do |u| %>
+   <%= submit_tag "Delete User" %>
+<% end %>

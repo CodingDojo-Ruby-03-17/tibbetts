@@ -1,0 +1,16 @@
+<h1>Users#new</h1>
+<p>Find me in app/views/users/new.html.erb</p>
+<% flash.each do |key, value| %>
+  <%= content_tag :p, value, class: "flash #{key}" %>
+<% end %>
+
+<%= form_for User.new do |user| %>
+  <%= user.label :first_name %>
+  <%= user.text_field :first_name %>
+  <%= user.label :last_name %>
+  <%= user.text_field :last_name %>
+  <%= user.label :email %>
+  <%= user.text_field :email %>
+  <%= submit_tag "Create User" %>
+
+<% end %>

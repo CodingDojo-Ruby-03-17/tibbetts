@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wall</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if flash[:success] %>
+      <% flash[:success].each do |message| %>
+	<%= content_tag(:p, message) %>
+      <% end %>
+    <% end %>
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |error| %>
+        <%= content_tag(:p, error) %>
+      <% end %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
